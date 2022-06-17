@@ -62,7 +62,7 @@ workspace:
       enabled: false
   # List of apps will be installed, if not empty and config.vtexCli disabled,
   # you must ensure your vtex cli is authenticated already
-  installApps:
+  installApps: 
     - vtex.b2b-suite
     - vtex.b2b-quotes
     - vtex.quickorder
@@ -73,8 +73,8 @@ workspace:
     - vtex.wordpress-integration@2.x
     - vtex.storefront-permissions-ui@0.x
     - vtex.reviews-and-ratings@2.x
-    - vtex.b2bstore@2.x
-  removeApps:
+    - vtex.b2bstore@3.x
+  removeApps: 
     - vtex.bitcot-qa-theme
   wipe:
     enabled: true
@@ -109,7 +109,7 @@ strategy:
     dependency:
       - cypress-shared/integration/b2b/2.1.2*
   addUsersInOrganizationA:
-    enabled: false
+    enabled: true
     sendDashboard: true
     hardTries: 1
     stopOnFail: false
@@ -121,24 +121,33 @@ strategy:
     dependency:
       - cypress-shared/integration/b2b/2.1.1*
   organizationAUsersTestCases:
-    enabled: false
+    enabled: true
     sendDashboard: true
     hardTries: 1
     stopOnFail: false
-    parallel: false
-    runInOrder: true
+    parallel: true
     specs:
       - cypress-shared/integration/b2b/2.5*
       - cypress-shared/integration/b2b/2.6*
-      - cypress-shared/integration/b2b/2.8*
       - cypress-shared/integration/b2b/2.9*
       - cypress-shared/integration/b2b/2.10*
       - cypress-shared/integration/b2b/2.12*
-      - cypress-shared/integration/b2b/2.13*
-      - cypress-shared/integration/b2b/2.14*
     dependency:
       - cypress-shared/integration/b2b/2.2*
       - cypress-shared/integration/b2b/2.4*
+  organizationASalesUsersTestCases:
+    enabled: true
+    sendDashboard: true
+    hardTries: 1
+    stopOnFail: false
+    parallel: true
+    specs:
+      - cypress-shared/integration/b2b/2.8*
+      - cypress-shared/integration/b2b/2.13*
+      - cypress-shared/integration/b2b/2.14*
+  dependency:
+      - cypress-shared/integration/b2b/2.5*
+      - cypress-shared/integration/b2b/2.9*
   addUsersInOrganizationB:
     enabled: true
     sendDashboard: true
