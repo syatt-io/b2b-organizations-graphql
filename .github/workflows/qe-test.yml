@@ -1,7 +1,9 @@
-name: '[DPH] Quality Engineering'
+name: '[TST] Quality Engineering'
 
 on:
-  workflow_dispatch:
+  push:
+    branches: 
+      - test/b2b-impersonation  
 
 jobs:
   quality-engineering:
