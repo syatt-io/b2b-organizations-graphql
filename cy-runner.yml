@@ -145,9 +145,9 @@ strategy:
       - cypress-shared/integration/b2b/2.8*
       - cypress-shared/integration/b2b/2.13*
       - cypress-shared/integration/b2b/2.14*
-  dependency:
-      - cypress-shared/integration/b2b/2.5*
-      - cypress-shared/integration/b2b/2.9*
+    dependency:
+        - cypress-shared/integration/b2b/2.5*
+        - cypress-shared/integration/b2b/2.9*
   addUsersInOrganizationB:
     enabled: true
     sendDashboard: true
