@@ -102,10 +102,9 @@ strategy:
     sendDashboard: true
     hardTries: 1
     stopOnFail: false
-    parallel: true
+    parallel: false
     specs:
       - cypress-shared/integration/b2b/2.1.4*
-      - cypress-shared/integration/b2b/2.2*
     dependency:
       - cypress-shared/integration/b2b/2.1.1*
       - cypress-shared/integration/b2b/2.1.2*
@@ -116,11 +115,11 @@ strategy:
     stopOnFail: false
     parallel: true
     specs:
+      - cypress-shared/integration/b2b/2.2*
       - cypress-shared/integration/b2b/2.3*
       - cypress-shared/integration/b2b/2.4*
     dependency:
       - cypress-shared/integration/b2b/2.1.4*
-      - cypress-shared/integration/b2b/2.2*
   organizationAUsersTestCases:
     enabled: true
     sendDashboard: true
