@@ -117,8 +117,6 @@ strategy:
       - cypress-shared/integration/b2b/2.2*
       - cypress-shared/integration/b2b/2.3*
       - cypress-shared/integration/b2b/2.4*
-    dependency:
-      - cypress-shared/integration/b2b/2.1.4*
   organizationAUsersTestCases:
     enabled: true
     sendDashboard: true
