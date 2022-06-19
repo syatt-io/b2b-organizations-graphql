@@ -116,7 +116,16 @@ strategy:
     specs:
       - cypress-shared/integration/b2b/2.2*
       - cypress-shared/integration/b2b/2.3*
+  addSalesUsers: 
+    enabled: true
+    sendDashboard: true
+    hardTries: 1
+    stopOnFail: false
+    parallel: false
+    specs:
       - cypress-shared/integration/b2b/2.4*
+    dependency:
+      - cypress-shared/integration/b2b/2.2*
   organizationAUsersTestCases:
     enabled: true
     sendDashboard: true
