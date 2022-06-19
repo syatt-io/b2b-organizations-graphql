@@ -135,7 +135,7 @@ strategy:
   organizationASalesUsersTestCases:
     enabled: true
     sendDashboard: true
-    hardTries: 2
+    hardTries: 1
     stopOnFail: false
     parallel: true
     specs:
