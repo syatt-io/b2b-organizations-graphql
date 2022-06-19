@@ -30,7 +30,7 @@ base:
     devMode: false
     runHeaded: false
     getCookies: true
-    maxJobs: 2
+    maxJobs: 3
     quiet: true
     projectId: hymmzm
     video: false
@@ -116,6 +116,10 @@ strategy:
     specs:
       - cypress-shared/integration/b2b/2.2*
       - cypress-shared/integration/b2b/2.3*
+    dependency:
+      - cypress-shared/integration/b2b/2.1.1*
+      # Once multiOrgRequests fixed -> Replace 2.1.2 to 2.1.4 
+      - cypress-shared/integration/b2b/2.1.2*
   addSalesUsers: 
     enabled: true
     sendDashboard: true
