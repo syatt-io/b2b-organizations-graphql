@@ -130,7 +130,7 @@ strategy:
       - cypress-shared/integration/b2b/2.4*
     dependency:
       - cypress-shared/integration/b2b/2.2*
-  organizationAUsersTestCases:
+  organizationABUsersTestCases:
     enabled: true
     sendDashboard: true
     hardTries: 1
@@ -142,13 +142,16 @@ strategy:
       - cypress-shared/integration/b2b/2.9*
       - cypress-shared/integration/b2b/2.10*
       - cypress-shared/integration/b2b/2.12*
+      - cypress-shared/integration/b2b/2.7*
+      - cypress-shared/integration/b2b/2.11*
     dependency:
       - cypress-shared/integration/b2b/2.2*
       - cypress-shared/integration/b2b/2.4*
+      - cypress-shared/integration/b2b/2.3*
   organizationASalesUsersTestCases:
     enabled: true
     sendDashboard: true
-    hardTries: 1
+    hardTries: 2
     stopOnFail: false
     parallel: true
     specs:
@@ -159,14 +162,3 @@ strategy:
         - cypress-shared/integration/b2b/2.4*
         - cypress-shared/integration/b2b/2.5*
         - cypress-shared/integration/b2b/2.9*
-  organizationBUsersTestCases:
-    enabled: true
-    sendDashboard: true
-    hardTries: 1
-    stopOnFail: false
-    parallel: true
-    specs:
-      - cypress-shared/integration/b2b/2.7*
-      - cypress-shared/integration/b2b/2.11*
-    dependency:
-      - cypress-shared/integration/b2b/2.3*
