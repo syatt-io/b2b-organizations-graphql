@@ -5,11 +5,12 @@ on:
     branches:
       - master
       - main
+      - test/sonarcloud-output
 
 jobs:
   quality-engineering:
     name: QE
-    uses: vtex-apps/usqa/.github/workflows/quality-engineering.yml@main
+    uses: vtex-apps/usqa/.github/workflows/quality-engineering.yml@sonar-output
     with:
       nodeLint: true
       nodeTest: false
