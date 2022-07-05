@@ -5,14 +5,15 @@ on:
     branches:
       - master
       - main
+      - test/new-workflow
 
 jobs:
   quality-engineering:
     name: QE
-    uses: vtex-apps/usqa/.github/workflows/quality-engineering.yml@main
+    uses: vtex-apps/usqa/.github/workflows/quality-engineering.yml@new-version
     with:
       nodeLint: true
-      nodeTest: false
+      nodeTest: true
       nodeSonar: true
       nodeSonarProjectKey: vtex-apps_b2b-organizations-graphql
       nodeSonarOrganization: vtex-apps
