@@ -99,6 +99,7 @@ type Mutation {
     collections: [CollectionInput]
     paymentTerms: [PaymentTermInput]
     priceTables: [String]
+    customFields: [CustomFieldInput]
   ): MutationResponse @checkAdminAccess @cacheControl(scope: PRIVATE)
   updateCostCenter(id: ID!, input: CostCenterInput!): MutationResponse
     @withSession
@@ -244,6 +245,7 @@ type Organization {
   collections: [Collection]
   paymentTerms: [PaymentTerm]
   priceTables: [String]
+  customFields: [CustomFieldInput]
   costCenters: [ID]
   status: String
   created: String
@@ -257,6 +259,21 @@ type Collection {
 type PaymentTerm {
   id: ID
   name: String
+}
+
+enum CustomFieldType {
+  text
+}
+
+type CustomField {
+  name: String
+  type: CustomFieldType
+}
+
+type CustomFieldInput {
+  name: String
+  value: String
+  type: CustomFieldType
 }
 
 type CostCenter {
@@ -273,6 +290,7 @@ type B2BSetting {
   autoApprove: Boolean
   defaultPaymentTerms: [PaymentTerm]
   defaultPriceTables: [String]
+  defaultCustomFields: [CustomField]
 }
 
 type Address {
@@ -394,8 +412,14 @@ input PaymentTermInput {
   name: String
 }
 
+input CustomFieldInput {
+  name: String
+  type: CustomFieldType
+}
+
 input B2BSettingsInput {
   autoApprove: Boolean
   defaultPaymentTerms: [PaymentTermInput]
   defaultPriceTables: [String]
+  defaultCustomFields: [CustomFieldInput]
 }

@@ -131,7 +131,8 @@ interface Address {
 interface B2BSetting {
   autoApprove: boolean
   defaultPaymentTerms: PaymentTerm[]
-  defaultPriceTables: [String]
+  defaultPriceTables: [string]
+  defaultCustomFields: CustomField[]
 }
 
 interface UserArgs {
@@ -156,8 +157,14 @@ interface Price {
   id: string
 }
 
+interface CustomField {
+  name: string
+  type: 'text'
+}
+
 interface B2BSettingsInput {
   autoApprove: boolean
   defaultPaymentTerms: PaymentTerm[]
   defaultPriceTables: Price[]
+  defaultCustomFields: [CustomField]
 }

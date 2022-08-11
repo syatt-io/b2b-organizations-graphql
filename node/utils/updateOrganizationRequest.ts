@@ -45,6 +45,7 @@ export const updateOrganizationRequest = async (
         paymentTerms,
         priceTables,
         costCenters: [],
+        customFields: [],
       }
 
       const createOrganizationResult = await masterdata.createDocument({
@@ -166,4 +167,6 @@ export const updateOrganizationRequest = async (
       }
     }
   }
+
+  return null
 }

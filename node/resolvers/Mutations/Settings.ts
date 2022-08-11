@@ -8,7 +8,12 @@ const B2BSettings = {
   saveB2BSettings: async (
     _: void,
     {
-      input: { autoApprove, defaultPaymentTerms, defaultPriceTables },
+      input: {
+        autoApprove,
+        defaultPaymentTerms,
+        defaultPriceTables,
+        defaultCustomFields,
+      },
     }: {
       input: B2BSettingsInput
       page: number
@@ -29,6 +34,7 @@ const B2BSettings = {
         autoApprove,
         defaultPaymentTerms,
         defaultPriceTables,
+        defaultCustomFields,
       }
 
       await vbase.saveJSON(B2B_SETTINGS_DATA_ENTITY, 'settings', b2bSettings)

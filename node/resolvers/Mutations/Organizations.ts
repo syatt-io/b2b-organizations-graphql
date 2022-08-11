@@ -46,6 +46,7 @@ const Organizations = {
         created: now,
         paymentTerms: [],
         priceTables: [],
+        customFields: [],
         status: ORGANIZATION_STATUSES.ACTIVE,
       }
 
@@ -95,7 +96,7 @@ const Organizations = {
   createOrganizationRequest: async (
     _: void,
     {
-      input: { name, tradeName, b2bCustomerAdmin, defaultCostCenter },
+      input: { name, tradeName, b2bCustomerAdmin },
     }: { input: OrganizationInput },
     ctx: Context
   ) => {
@@ -132,11 +133,9 @@ const Organizations = {
 
     const settings = await B2BSettings.getB2BSettings(undefined, undefined, ctx)
 
-    let status = ORGANIZATION_REQUEST_STATUSES.PENDING
-
-    if (settings?.autoApprove) {
-      status = ORGANIZATION_REQUEST_STATUSES.APPROVED
-    }
+    const status = settings?.autoApprove
+      ? ORGANIZATION_REQUEST_STATUSES.APPROVED
+      : ORGANIZATION_REQUEST_STATUSES.PENDING
 
     const organizationRequest = {
       name,
