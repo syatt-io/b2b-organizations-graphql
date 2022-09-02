@@ -236,6 +236,7 @@ type DefaultCostCenter {
   address: Address
   phoneNumber: String
   businessDocument: String
+  customFields: [CustomField]
 }
 
 type Organization {
@@ -245,7 +246,7 @@ type Organization {
   collections: [Collection]
   paymentTerms: [PaymentTerm]
   priceTables: [String]
-  customFields: [CustomFieldInput]
+  customFields: [CustomField]
   costCenters: [ID]
   status: String
   created: String
@@ -268,12 +269,13 @@ enum CustomFieldType {
 type CustomField {
   name: String
   type: CustomFieldType
+  value: String
 }
 
-type CustomFieldInput {
+input CustomFieldInput {
   name: String
-  value: String
   type: CustomFieldType
+  value: String
 }
 
 type CostCenter {
@@ -284,13 +286,15 @@ type CostCenter {
   paymentTerms: [PaymentTerm]
   phoneNumber: String
   businessDocument: String
+  customFields: [CustomField]
 }
 
 type B2BSetting {
   autoApprove: Boolean
   defaultPaymentTerms: [PaymentTerm]
   defaultPriceTables: [String]
-  defaultCustomFields: [CustomField]
+  organizationCustomFields: [CustomField]
+  costCenterCustomFields: [CustomField]
 }
 
 type Address {
@@ -375,6 +379,7 @@ input DefaultCostCenterInput {
   address: AddressInput
   phoneNumber: String
   businessDocument: String
+  customFields: [CustomFieldInput]
 }
 
 input CostCenterInput {
@@ -383,6 +388,7 @@ input CostCenterInput {
   paymentTerms: [PaymentTermInput]
   phoneNumber: String
   businessDocument: String
+  customFields: [CustomFieldInput]
 }
 
 input AddressInput {
@@ -412,14 +418,10 @@ input PaymentTermInput {
   name: String
 }
 
-input CustomFieldInput {
-  name: String
-  type: CustomFieldType
-}
-
 input B2BSettingsInput {
   autoApprove: Boolean
   defaultPaymentTerms: [PaymentTermInput]
   defaultPriceTables: [String]
-  defaultCustomFields: [CustomFieldInput]
+  organizationCustomFields: [CustomFieldInput]
+  costCenterCustomFields: [CustomFieldInput]
 }

@@ -19,7 +19,6 @@ export const ORGANIZATION_FIELDS = [
   'collections',
   'paymentTerms',
   'priceTables',
-  'customFields',
   'costCenters',
   'status',
   'created',
@@ -36,14 +35,13 @@ export const COST_CENTER_FIELDS = [
   'phoneNumber',
   'businessDocument',
 ]
-export const COST_CENTER_SCHEMA_VERSION = 'v0.0.6'
+export const COST_CENTER_SCHEMA_VERSION = 'v0.0.7'
 
 export const B2B_SETTINGS_DATA_ENTITY = 'b2b_settings'
 export const B2B_SETTINGS_FIELDS = [
   'autoApprove',
   'defaultPaymentTerms',
   'defaultPriceTables',
-  'defaultCustomFields',
 ]
 export const B2B_SETTINGS_SCHEMA_VERSION = 'v0.0.8'
 
@@ -119,10 +117,6 @@ export const schemas = [
           type: 'array',
           title: 'Price Tables',
         },
-        customFields: {
-          type: 'array',
-          title: 'Custom Fields',
-        },
         costCenters: {
           // deprecated
           type: 'array',
@@ -194,10 +188,6 @@ export const schemas = [
         defaultPriceTables: {
           type: 'array',
           title: 'Default Price Tables',
-        },
-        customFields: {
-          type: 'array',
-          title: 'Custom Fields',
         },
       },
       'v-immediate-indexing': true,

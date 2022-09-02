@@ -56,6 +56,7 @@ interface DefaultCostCenterInput {
   address: AddressInput
   phoneNumber?: string
   businessDocument?: string
+  customFields?: CustomField[]
 }
 
 interface CostCenterInput {
@@ -64,6 +65,7 @@ interface CostCenterInput {
   paymentTerms?: PaymentTerm[]
   phoneNumber?: string
   businessDocument?: string
+  customFields?: CustomField[]
 }
 
 interface AddressInput {
@@ -111,7 +113,7 @@ interface CostCenter {
 }
 
 interface Address {
-  addressId: string
+  addressId: stringf
   addressType: string
   addressQuery: string
   postalCode: string
@@ -132,7 +134,8 @@ interface B2BSetting {
   autoApprove: boolean
   defaultPaymentTerms: PaymentTerm[]
   defaultPriceTables: [string]
-  defaultCustomFields: CustomField[]
+  organizationCustomFields: CustomField[]
+  costCenterCustomFields: CustomField[]
 }
 
 interface UserArgs {
@@ -162,9 +165,15 @@ interface CustomField {
   type: 'text'
 }
 
+interface CustomFieldSetting {
+  name: string
+  type: 'text'
+}
+
 interface B2BSettingsInput {
   autoApprove: boolean
   defaultPaymentTerms: PaymentTerm[]
   defaultPriceTables: Price[]
-  defaultCustomFields: [CustomField]
+  organizationCustomFields: CustomFieldSetting[]
+  costCenterCustomFields: CustomFieldSetting[]
 }

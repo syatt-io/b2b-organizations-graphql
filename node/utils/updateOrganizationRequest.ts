@@ -20,7 +20,8 @@ export const updateOrganizationRequest = async (
   storefrontPermissions: any,
   logger: any,
   paymentTerms: PaymentTerm[],
-  priceTables: Price[]
+  priceTables: Price[],
+  customFields: CustomField[]
 ) => {
   if (status === 'approved') {
     const now = new Date()
@@ -45,7 +46,7 @@ export const updateOrganizationRequest = async (
         paymentTerms,
         priceTables,
         costCenters: [],
-        customFields: [],
+        customFields,
       }
 
       const createOrganizationResult = await masterdata.createDocument({
@@ -67,6 +68,9 @@ export const updateOrganizationRequest = async (
         ...(organizationRequest.defaultCostCenter.businessDocument && {
           businessDocument:
             organizationRequest.defaultCostCenter.businessDocument,
+        }),
+        ...(organizationRequest.defaultCostCenter.customFields && {
+          customFields: organizationRequest.defaultCostCenter.customFields,
         }),
       }
 
@@ -151,8 +155,6 @@ export const updateOrganizationRequest = async (
       message({ storefrontPermissions, logger, mail }).organizationCreated(
         organizationRequest.name
       )
-
-      return { status: 'success', message: '', id: organizationId }
     } catch (e) {
       logger.error({
         message: 'updateOrganizationRequest-error',
@@ -167,6 +169,4 @@ export const updateOrganizationRequest = async (
       }
     }
   }
-
-  return null
 }
