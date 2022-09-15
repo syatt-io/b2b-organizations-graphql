@@ -134,8 +134,8 @@ interface B2BSettings {
   autoApprove: boolean
   defaultPaymentTerms: PaymentTerm[]
   defaultPriceTables: [string]
-  organizationCustomFields: CustomField[]
-  costCenterCustomFields: CustomField[]
+  organizationCustomFields: SettingsCustomField[]
+  costCenterCustomFields: SettingsCustomField[]
 }
 
 interface UserArgs {
@@ -163,6 +163,7 @@ interface Price {
 interface CustomField {
   name: string
   type: 'text'
+  value: string
 }
 
 interface CustomFieldSetting {

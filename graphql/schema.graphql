@@ -262,22 +262,6 @@ type PaymentTerm {
   name: String
 }
 
-enum CustomFieldType {
-  text
-}
-
-type CustomField {
-  name: String
-  type: CustomFieldType
-  value: String
-}
-
-input CustomFieldInput {
-  name: String
-  type: CustomFieldType
-  value: String
-}
-
 type CostCenter {
   id: ID
   name: String
@@ -350,12 +334,6 @@ type SimpleRole {
   slug: String
 }
 
-type B2BSettings {
-  autoApprove: Boolean
-  defaultPaymentTerms: [PaymentTerm]
-  defaultPriceTables: [String]
-}
-
 scalar Data
 
 input OrganizationInput {
@@ -413,6 +391,35 @@ input CollectionInput {
 input PaymentTermInput {
   id: ID
   name: String
+}
+
+enum CustomFieldType {
+  text
+}
+
+type CustomField {
+  name: String
+  type: CustomFieldType
+  value: String
+}
+
+input SettingsCustomField {
+  name: String
+  type: CustomFieldType
+}
+
+input CustomFieldInput {
+  name: String!
+  type: CustomFieldType!
+  value: String
+}
+
+type B2BSettings {
+  autoApprove: Boolean
+  defaultPaymentTerms: [PaymentTerm]
+  defaultPriceTables: [String]
+  organizationCustomFields: [SettingsCustomField]
+  costCenterCustomFields: [SettingsCustomField]
 }
 
 input B2BSettingsInput {
