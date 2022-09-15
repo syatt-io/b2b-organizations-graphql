@@ -113,7 +113,7 @@ interface CostCenter {
 }
 
 interface Address {
-  addressId: stringf
+  addressId: string
   addressType: string
   addressQuery: string
   postalCode: string
