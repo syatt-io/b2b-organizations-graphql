@@ -15,9 +15,9 @@ export const updateOrganizationRequest = async (
   logger: any,
   paymentTerms: PaymentTerm[],
   priceTables: Price[],
+  customFields: CustomField[],
   Organizations: any,
-  ctx: any,
-  customFields: CustomField[]
+  ctx: any
 ) => {
   if (status === 'approved') {
     try {
