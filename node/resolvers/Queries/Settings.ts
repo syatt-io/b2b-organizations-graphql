@@ -1,4 +1,3 @@
-import { B2B_SETTINGS_DATA_ENTITY } from '../../mdSchema'
 import GraphQLError from '../../utils/GraphQLError'
 import checkConfig from '../config'
 
@@ -7,6 +6,8 @@ const B2BSettings = {
     const {
       clients: { vbase },
     } = ctx
+
+    const B2B_SETTINGS_DATA_ENTITY = 'b2b_settings'
 
     // create schema if it doesn't exist
     await checkConfig(ctx)

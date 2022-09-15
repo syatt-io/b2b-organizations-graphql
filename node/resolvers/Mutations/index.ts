@@ -4,7 +4,6 @@ import Organizations from './Organizations'
 import Users from './Users'
 import Settings from './Settings'
 
-
 const Index = {
   ...CostCenters,
   ...Organizations,

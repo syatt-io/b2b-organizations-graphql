@@ -1,4 +1,3 @@
-import { B2B_SETTINGS_DATA_ENTITY } from '../../mdSchema'
 import GraphQLError from '../../utils/GraphQLError'
 import checkConfig from '../config'
 
@@ -29,6 +28,8 @@ const B2BSettings = {
 
     // create schema if it doesn't exist
     await checkConfig(ctx)
+
+    const B2B_SETTINGS_DATA_ENTITY = 'b2b_settings'
 
     try {
       const b2bSettings = {

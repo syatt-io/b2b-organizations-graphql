@@ -99,7 +99,7 @@ const Organizations = {
   createOrganizationRequest: async (
     _: void,
     {
-      input: { name, tradeName, b2bCustomerAdmin },
+      input: { name, tradeName, b2bCustomerAdmin, defaultCostCenter },
     }: { input: OrganizationInput },
     ctx: Context
   ) => {
@@ -134,7 +134,11 @@ const Organizations = {
 
     const now = new Date()
 
-    const settings = await B2BSettings.getB2BSettings(undefined, undefined, ctx)
+    const settings = (await B2BSettings.getB2BSettings(
+      undefined,
+      undefined,
+      ctx
+    )) as B2BSettingsInput
 
     const status = settings?.autoApprove
       ? ORGANIZATION_REQUEST_STATUSES.APPROVED
@@ -146,6 +150,7 @@ const Organizations = {
       b2bCustomerAdmin,
       status,
       notes: '',
+      defaultCostCenter,
       created: now,
     }
 
@@ -172,7 +177,9 @@ const Organizations = {
           logger,
           (settings?.defaultPaymentTerms as unknown) as PaymentTerm[],
           (settings?.defaultPriceTables as unknown) as Price[],
-          (settings?.organizationCustomFields as unknown) as CustomField[]
+          (settings?.organizationCustomFields as unknown) as CustomField[],
+          Organizations,
+          ctx
         )
       }
 
@@ -339,7 +346,9 @@ const Organizations = {
       logger,
       [],
       [],
-      []
+      [],
+      Organizations,
+      ctx
     )
 
     // if we reach this block, status is declined

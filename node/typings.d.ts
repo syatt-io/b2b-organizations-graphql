@@ -130,7 +130,7 @@ interface Address {
   checked?: boolean
 }
 
-interface B2BSetting {
+interface B2BSettings {
   autoApprove: boolean
   defaultPaymentTerms: PaymentTerm[]
   defaultPriceTables: [string]
