@@ -291,6 +291,7 @@ type CostCenter {
   paymentTerms: [PaymentTerm]
   phoneNumber: String
   businessDocument: String
+  customFields: [CustomField]
   stateRegistration: String
 }
 
