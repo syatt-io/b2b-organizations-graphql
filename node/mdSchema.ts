@@ -22,6 +22,7 @@ export const ORGANIZATION_FIELDS = [
   'costCenters',
   'status',
   'created',
+  'customFields',
 ]
 export const ORGANIZATION_SCHEMA_VERSION = 'v0.0.7'
 

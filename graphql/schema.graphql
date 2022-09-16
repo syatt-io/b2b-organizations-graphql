@@ -403,7 +403,7 @@ type CustomField {
   value: String
 }
 
-input SettingsCustomField {
+type SettingsCustomField {
   name: String
   type: CustomFieldType
 }
