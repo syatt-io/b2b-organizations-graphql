@@ -23,6 +23,7 @@ export const ORGANIZATION_FIELDS = [
   'costCenters',
   'status',
   'created',
+  'customFields',
 ]
 export const ORGANIZATION_SCHEMA_VERSION = 'v0.0.7'
 
@@ -39,6 +40,14 @@ export const COST_CENTER_FIELDS = [
   'stateRegistration',
 ]
 export const COST_CENTER_SCHEMA_VERSION = 'v0.0.7'
+
+export const B2B_SETTINGS_DATA_ENTITY = 'b2b_settings'
+export const B2B_SETTINGS_FIELDS = [
+  'autoApprove',
+  'defaultPaymentTerms',
+  'defaultPriceTables',
+]
+export const B2B_SETTINGS_SCHEMA_VERSION = 'v0.0.8'
 
 export const schemas = [
   {
