@@ -1,6 +1,6 @@
 {
   "name": "b2b-organizations-graphql",
-  "vendor": "vtex",
+  "vendor": "syatt",
   "version": "2.1.0",
   "title": "B2B Organizations",
   "description": "App to create and manage B2B Organizations and Cost Centers",
