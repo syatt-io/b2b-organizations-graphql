@@ -17,6 +17,7 @@ import MarketingTagsQuery from './Queries/MarketingTags'
 import OrganizationsQuery from './Queries/Organizations'
 import SettingsQuery from './Queries/Settings'
 import UsersQuery from './Queries/Users'
+import SettingsQuery from './Queries/Settings'
 import Routes from './Routes'
 
 export const resolvers = {
@@ -44,6 +45,7 @@ export const resolvers = {
     ...OrganizationsQuery,
     ...SettingsQuery,
     ...UsersQuery,
+    ...SettingsQuery,
   },
   Routes,
 }
