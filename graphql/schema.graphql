@@ -394,6 +394,7 @@ input OrganizationInput {
   tradeName: String
   b2bCustomerAdmin: B2BUserInput
   defaultCostCenter: DefaultCostCenterInput
+  customFields: [CustomFieldInput]
 }
 
 input B2BUserInput {
@@ -450,23 +451,30 @@ input PaymentTermInput {
 
 enum CustomFieldType {
   text
+  dropdown
 }
 
 type CustomField {
   name: String
   type: CustomFieldType
   value: String
+  dropdownValues: [DropdownValue]
+  useOnRegistration: Boolean
 }
 
 type SettingsCustomField {
   name: String
   type: CustomFieldType
+  dropdownValues: [DropdownValue]
+  useOnRegistration: Boolean
 }
 
 input CustomFieldInput {
   name: String!
   type: CustomFieldType!
   value: String
+  dropdownValues: [DropdownValueInput]
+  useOnRegistration: Boolean
 }
 
 type B2BSettings {
@@ -488,4 +496,14 @@ input B2BSettingsInput {
   defaultPriceTables: [String]
   organizationCustomFields: [CustomFieldInput]
   costCenterCustomFields: [CustomFieldInput]
+}
+
+type DropdownValue {
+  value: String
+  label: String
+}
+
+input DropdownValueInput {
+  value: String
+  label: String
 }

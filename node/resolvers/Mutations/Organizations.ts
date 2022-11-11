@@ -22,7 +22,7 @@ const Organizations = {
   createOrganization: async (
     _: void,
     {
-      input: { name, tradeName, defaultCostCenter },
+      input: { name, tradeName, defaultCostCenter, customFields },
     }: { input: OrganizationInput },
     ctx: Context
   ) => {
@@ -46,7 +46,7 @@ const Organizations = {
         created: now,
         paymentTerms: [],
         priceTables: [],
-        customFields: [],
+        customFields: customFields ?? [],
         salesChannel: null,
         status: ORGANIZATION_STATUSES.ACTIVE,
       }
@@ -103,7 +103,13 @@ const Organizations = {
   createOrganizationRequest: async (
     _: void,
     {
-      input: { name, tradeName, b2bCustomerAdmin, defaultCostCenter },
+      input: {
+        name,
+        tradeName,
+        b2bCustomerAdmin,
+        defaultCostCenter,
+        customFields,
+      },
     }: { input: OrganizationInput },
     ctx: Context
   ) => {
@@ -155,6 +161,7 @@ const Organizations = {
       status,
       notes: '',
       defaultCostCenter,
+      customFields,
       created: now,
     }
 
@@ -181,7 +188,7 @@ const Organizations = {
           logger,
           (settings?.defaultPaymentTerms as unknown) as PaymentTerm[],
           (settings?.defaultPriceTables as unknown) as Price[],
-          (settings?.organizationCustomFields as unknown) as CustomField[],
+          customFields,
           Organizations,
           ctx
         )
