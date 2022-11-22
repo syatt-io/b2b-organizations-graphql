@@ -7,13 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [2.2.2] - 2022-09-30
+## [2.3.0] - 2022-11-22
 
-## [2.2.1] - 2022-09-22
-
-## [2.2.0] - 2022-09-21
-
-## [2.1.0] - 2022-09-21
+- WITI-319-Adding dropdown fields logic
 
 ### Added
 
