@@ -46,7 +46,7 @@ const Settings = {
     // create schema if it doesn't exist
     await checkConfig(ctx)
 
-    const B2B_SETTINGS_DATA_ENTITY = "b2b_settings"
+    const B2B_SETTINGS_DATA_ENTITY = 'b2b_settings'
 
     try {
       const b2bSettings = {
