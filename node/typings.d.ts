@@ -43,7 +43,7 @@ interface OrganizationInput {
   tradeName?: string
   b2bCustomerAdmin: B2BCustomerInput
   defaultCostCenter: DefaultCostCenterInput
-  customFields?: CustomFields
+  customFields?: CustomField[]
 }
 
 interface B2BCustomerInput {
@@ -169,6 +169,13 @@ interface CustomField {
   name: string
   type: 'text' | 'dropdown'
   value: string
+  dropdownValues?: Array<{ label: string; value: string }> | null
+  useOnRegistration?: boolean
+}
+
+interface SettingsCustomField {
+  name: string
+  type: 'text' | 'dropdown'
   dropdownValues?: Array<{ label: string; value: string }> | null
   useOnRegistration?: boolean
 }

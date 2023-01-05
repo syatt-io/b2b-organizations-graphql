@@ -174,10 +174,10 @@ export const schemas = [
           type: ['string', 'null'],
           title: 'Phone Number',
         },
-        // customFields: {
-        //   type: ['array', 'null'],
-        //   title: 'Custom Fields',
-        // },
+        customFields: {
+          type: ['array', 'null'],
+          title: 'Custom Fields',
+        },
       },
       'v-indexed': [
         'name',

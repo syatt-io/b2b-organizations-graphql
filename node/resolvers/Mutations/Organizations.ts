@@ -188,7 +188,7 @@ const Organizations = {
           logger,
           (settings?.defaultPaymentTerms as unknown) as PaymentTerm[],
           (settings?.defaultPriceTables as unknown) as Price[],
-          customFields,
+          customFields ?? [],
           Organizations,
           ctx
         )

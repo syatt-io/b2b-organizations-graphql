@@ -381,12 +381,6 @@ type MarketingTags {
   tags: [String]
 }
 
-type B2BSettings {
-  autoApprove: Boolean
-  defaultPaymentTerms: [PaymentTerm]
-  defaultPriceTables: [String]
-}
-
 scalar Data
 
 input OrganizationInput {
