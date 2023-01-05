@@ -79,6 +79,7 @@ type Query {
     @cacheControl(scope: PUBLIC, maxAge: SHORT)
   getMarketingTags(costId: ID!): MarketingTags
     @cacheControl(scope: PUBLIC, maxAge: SHORT)
+  getB2BSettings: B2BSettings @cacheControl(scope: PUBLIC, maxAge: SHORT)
 }
 
 type Mutation {
@@ -109,6 +110,7 @@ type Mutation {
     collections: [CollectionInput]
     paymentTerms: [PaymentTermInput]
     priceTables: [String]
+    customFields: [CustomFieldInput]
     salesChannel: String
   ): MutationResponse @checkAdminAccess @cacheControl(scope: PRIVATE)
   updateCostCenter(id: ID!, input: CostCenterInput!): MutationResponse
@@ -203,6 +205,10 @@ type Mutation {
     @withSession
     @withPermissions
     @cacheControl(scope: PRIVATE)
+
+  saveB2BSettings(input: B2BSettingsInput): MutationResponse
+    @withSession
+    @withPermissions
 }
 
 type SettingsResponse {
@@ -252,6 +258,7 @@ type DefaultCostCenter {
   address: Address
   phoneNumber: String
   businessDocument: String
+  customFields: [CustomField]
   stateRegistration: String
 }
 
@@ -262,6 +269,7 @@ type Organization {
   collections: [Collection]
   paymentTerms: [PaymentTerm]
   priceTables: [String]
+  customFields: [CustomField]
   salesChannel: String
   costCenters: [ID]
   status: String
@@ -286,6 +294,7 @@ type CostCenter {
   paymentTerms: [PaymentTerm]
   phoneNumber: String
   businessDocument: String
+  customFields: [CustomField]
   stateRegistration: String
 }
 
@@ -379,6 +388,7 @@ input OrganizationInput {
   tradeName: String
   b2bCustomerAdmin: B2BUserInput
   defaultCostCenter: DefaultCostCenterInput
+  customFields: [CustomFieldInput]
 }
 
 input B2BUserInput {
@@ -392,6 +402,7 @@ input DefaultCostCenterInput {
   address: AddressInput
   phoneNumber: String
   businessDocument: String
+  customFields: [CustomFieldInput]
   stateRegistration: String
 }
 
@@ -401,6 +412,7 @@ input CostCenterInput {
   paymentTerms: [PaymentTermInput]
   phoneNumber: String
   businessDocument: String
+  customFields: [CustomFieldInput]
   stateRegistration: String
 }
 
@@ -431,7 +443,61 @@ input PaymentTermInput {
   name: String
 }
 
+enum CustomFieldType {
+  text
+  dropdown
+}
+
+type CustomField {
+  name: String
+  type: CustomFieldType
+  value: String
+  dropdownValues: [DropdownValue]
+  useOnRegistration: Boolean
+}
+
+type SettingsCustomField {
+  name: String
+  type: CustomFieldType
+  dropdownValues: [DropdownValue]
+  useOnRegistration: Boolean
+}
+
+input CustomFieldInput {
+  name: String!
+  type: CustomFieldType!
+  value: String
+  dropdownValues: [DropdownValueInput]
+  useOnRegistration: Boolean
+}
+
+type B2BSettings {
+  autoApprove: Boolean
+  defaultPaymentTerms: [PaymentTerm]
+  defaultPriceTables: [String]
+  organizationCustomFields: [SettingsCustomField]
+  costCenterCustomFields: [SettingsCustomField]
+}
+
 input SalesChannelsInput {
   id: String
   name: String
+}
+
+input B2BSettingsInput {
+  autoApprove: Boolean
+  defaultPaymentTerms: [PaymentTermInput]
+  defaultPriceTables: [String]
+  organizationCustomFields: [CustomFieldInput]
+  costCenterCustomFields: [CustomFieldInput]
+}
+
+type DropdownValue {
+  value: String
+  label: String
+}
+
+input DropdownValueInput {
+  value: String
+  label: String
 }

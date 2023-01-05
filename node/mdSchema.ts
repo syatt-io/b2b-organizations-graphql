@@ -23,8 +23,9 @@ export const ORGANIZATION_FIELDS = [
   'costCenters',
   'status',
   'created',
+  'customFields',
 ]
-export const ORGANIZATION_SCHEMA_VERSION = 'v0.0.7'
+export const ORGANIZATION_SCHEMA_VERSION = 'v0.0.8'
 
 export const COST_CENTER_DATA_ENTITY = 'cost_centers'
 export const COST_CENTER_FIELDS = [
@@ -35,6 +36,7 @@ export const COST_CENTER_FIELDS = [
   'organization',
   'phoneNumber',
   'businessDocument',
+  'customFields',
   'stateRegistration',
 ]
 export const COST_CENTER_SCHEMA_VERSION = 'v0.0.7'
@@ -129,6 +131,10 @@ export const schemas = [
           title: 'Created',
           format: 'date-time',
         },
+        customFields: {
+          type: 'array',
+          title: 'Custom Fields',
+        },
       },
       'v-indexed': ['name', 'status', 'created'],
       'v-immediate-indexing': true,
@@ -167,6 +173,10 @@ export const schemas = [
         phoneNumber: {
           type: ['string', 'null'],
           title: 'Phone Number',
+        },
+        customFields: {
+          type: ['array', 'null'],
+          title: 'Custom Fields',
         },
       },
       'v-indexed': [

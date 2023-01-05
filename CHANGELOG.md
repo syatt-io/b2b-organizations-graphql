@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.3.0] - 2022-11-22
+
+- WITI-319-Adding dropdown fields logic
+
+### Added
+ - Allow users to set auto approval for new organization with a new setting fields
+
 ## [0.24.0] - 2022-10-25
 
 ### Changed
@@ -90,6 +97,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 
 - Added the cookie header to storefront permissions requests passing the authentication token.
+
+### Added
+
+- Allow users to set custom fields to hold information about organizations
+
+## [0.20.0] - 2022-08-30
+
+## [Unreleased]
+
+### Added
+
+- Allow users to set auto approval for new organization with a new setting fields
 
 ## [0.19.7] - 2022-08-23
 

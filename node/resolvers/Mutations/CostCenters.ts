@@ -17,7 +17,9 @@ const CostCenters = {
         phoneNumber,
         businessDocument,
         stateRegistration,
+        customFields
       },
+
     }: { organizationId: string; input: CostCenterInput },
     ctx: Context
   ) => {
@@ -53,6 +55,7 @@ const CostCenters = {
         ...(phoneNumber && { phoneNumber }),
         ...(businessDocument && { businessDocument }),
         ...(stateRegistration && { stateRegistration }),
+        ...(customFields && { customFields }),
       }
 
       const createCostCenterResult = await masterdata.createDocument({
@@ -162,6 +165,7 @@ const CostCenters = {
         phoneNumber,
         businessDocument,
         stateRegistration,
+        customFields,
       },
     }: { id: string; input: CostCenterInput },
     ctx: Context
@@ -187,6 +191,9 @@ const CostCenters = {
           }),
           ...((businessDocument || businessDocument === '') && {
             businessDocument,
+          }),
+          ...((customFields || customFields === '') && {
+            customFields,
           }),
         },
         id,
