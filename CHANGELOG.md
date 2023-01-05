@@ -7,12 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.4.0] - 2023-01-05
+
+- WITI-397 - Publish After Rebase
+
 ## [2.3.0] - 2022-11-22
 
 - WITI-319-Adding dropdown fields logic
 
 ### Added
- - Allow users to set auto approval for new organization with a new setting fields
+
+- Allow users to set auto approval for new organization with a new setting fields
 
 ## [0.24.0] - 2022-10-25
 
